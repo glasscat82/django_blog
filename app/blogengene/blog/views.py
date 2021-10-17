@@ -7,7 +7,7 @@ from .utils import *
 
 # Create your views here.
 def posts_list(request):    
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-date_pub', 'title')
     return render(request, 'blog/index.html', context = {'posts':posts})
 
 class PostDetail(ObjectDetailMixin, View):
@@ -15,7 +15,7 @@ class PostDetail(ObjectDetailMixin, View):
     templated = 'blog/post_detail.html'
 
 def tags_list(request):
-    tags = Tag.objects.all()
+    tags = Tag.objects.all().order_by('title')
     return render(request, 'blog/tags_list.html', context = {'tags':tags})
 
 class TagDetail(ObjectDetailMixin, View):
