@@ -3,6 +3,7 @@ from django.shortcuts import reverse
 
 class Post(models.Model):
     title =  models.CharField(max_length=150, db_index=True)
+    image = models.ImageField(upload_to='uploads/', blank=True, null=True, verbose_name="images")
     slug =  models.SlugField(max_length=150, unique=True)
     body =  models.TextField(blank=True, db_index=True)
     tags = models.ManyToManyField('Tag', blank=True, related_name='posts')
@@ -14,6 +15,9 @@ class Post(models.Model):
     def __str__(self):
         return '{}'.format(self.title)
 
+    class Meta:
+        ordering = ['-date_pub']
+
 class Tag(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)
@@ -23,3 +27,6 @@ class Tag(models.Model):
 
     def __str__(self):
         return '{}'.format(self.title)
+
+    class Meta:
+        ordering = ['title']

@@ -2,6 +2,7 @@
 mini blog on the engine Django 2.0.7
 ```
 Django==2.0.7
+Pillow==8.4.0
 Python==3.8.7
 db.sqlite3
 ```

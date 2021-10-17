@@ -2,7 +2,9 @@
     <div class="card-header">
         <i class="fa fa-calendar"></i> {{ post.date_pub|date:"d/m/Y H:i" }}
     </div>
-    <!--<img src="http://saitovik.com/static/fon.jpg" class="card-img-top" alt="fon.jpg">-->
+    {% if post.image %}
+    <img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" alt="">    
+    {% endif %}
     <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.body|truncatewords:15 }}</p>

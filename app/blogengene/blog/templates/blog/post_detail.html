@@ -12,6 +12,9 @@
         <div class="card-header">
             <i class="fa fa-calendar"></i> {{ post.date_pub|date:"d/m/Y H:i" }}
         </div>
+        {% if post.image %}
+        <img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" alt="">    
+        {% endif %}
         <div class="card-body">           
             <p class="card-text">{{ post.body }}</p>
             <a href="{% url 'posts_list_url' %}" class="btn btn-light btn-sm">&larr; list</a>
