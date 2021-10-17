@@ -1,0 +1,17 @@
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fa fa-calendar"></i> {{ post.date_pub|date:"d/m/Y H:i" }}
+    </div>
+    <!--<img src="http://saitovik.com/static/fon.jpg" class="card-img-top" alt="fon.jpg">-->
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.body|truncatewords:15 }}</p>
+        <a href="{{ post.get_absolute_url }}" class="btn btn-light btn-sm">Read &rarr;</a>
+    </div>
+    <div class="card-footer text-muted">
+        Tags: 
+        {% for tag in post.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+        {% endfor %}
+    </div>
+</div>
