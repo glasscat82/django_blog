@@ -26,7 +26,7 @@ cd app
 django-admin startproject blogengene  # команда которая создает проект, (blogengene - блоговый движок нозвание проекта)
 ```
 
-## 3
+## 3 - создание приложения в проекте
 ```
 python manage.py startapp blog
 ./manage.py runserver 5000
