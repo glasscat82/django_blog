@@ -1,4 +1,7 @@
 .idea
+__pycache__
+/app/blogengene/blog/__pycache__
+/app/blogengene/blogengene/__pycache__
 /venv/
 /__pycache__/
 */__pycache__/
