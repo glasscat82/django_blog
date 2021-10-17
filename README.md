@@ -1,5 +1,5 @@
 # Blog engene 0.1v  
-mini blog from Django 2.0.7
+mini blog on the engine Django 2.0.7
 ```
 Django==2.0.7
 Python==3.8.7
