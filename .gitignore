@@ -2,6 +2,7 @@
 __pycache__
 /app/blogengene/blog/__pycache__
 /app/blogengene/blogengene/__pycache__
+/app/blogengene/blog/migrations/__pycache__
 /app/blogengene/db.sqlite3
 /venv/
 /__pycache__/
