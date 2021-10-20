@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.views.generic import View
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from .models import *
 from .utils import *
@@ -20,7 +21,7 @@ def posts_list(request):
     next_url = '?page={}'.format(page.next_page_number()) if page.has_next() else ''
 
     context = {
-        'posts':page,
+        'page_obj':page,
         'is_paginated':is_paginated,
         'prev_url':prev_url,
         'next_url':next_url,
@@ -39,3 +40,14 @@ def tags_list(request):
 class TagDetail(ObjectDetailMixin, View):
     model = Tag
     templated = 'blog/tag_detail.html'
+
+def posts_search(request):
+    """ Search on page """
+    search_query = request.GET.get('q', '')
+
+    if search_query:
+        posts = Post.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
+    else:
+        posts = None
+
+    return render(request, 'blog/search.html', context = {'posts':posts})

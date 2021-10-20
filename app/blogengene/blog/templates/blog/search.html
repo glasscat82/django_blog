@@ -1,12 +1,12 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %} 
-    Post link
+    Search post:
 {% endblock %}
 
 {% block content %}
-    <h1 class='mb-4'>Post:</h1>
-    {%  for post in page_obj.object_list %}     
+    <h1 class='mb-4'>Search post <sup>{{ posts.count }}</sup>:</h1>
+    {%  for post in posts %}     
         {% include 'blog/includes/post_card_template.html' %}
-    {% endfor %}    
+    {% endfor %} 
 {% endblock %}

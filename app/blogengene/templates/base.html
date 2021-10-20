@@ -31,9 +31,9 @@
                   <a class="nav-link" href="{% url 'tags_list_url' %}">Tags</a>
                 </li>           
               </ul>                
-              <form class="form-inline my-2 my-lg-0">
+              <form class="form-inline my-2 my-lg-0" action="{% url 'posts_search_url' %}">
                 <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="q">
                 <div class="input-group-append">
                   <button class="btn btn-secondary" type="submit">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
         <main role="main">
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-6 mr-auto ml-auto">
+                    <div class="col-12 col-md-8 col-lg-7 col-xl-7 mr-auto ml-auto">
                     {% block content %}{% endblock %}
 
                     {% block pagination %}
@@ -58,8 +58,8 @@
                           <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Previous</a>
                         </li>                          
 
-                        {% for n in posts.paginator.page_range %}
-                          {% if posts.number == n %}
+                        {% for n in page_obj.paginator.page_range %}
+                          {% if page_obj.number == n %}
                           <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>                    
                           {% else %}
                           <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
