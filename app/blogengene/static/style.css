@@ -1,0 +1,27 @@
+/* style for blog engine */
+
+html{ position: relative; min-height: 100%; }
+html, body { font-size:16px; }
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body { 
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  
+main[role='main'] {
+    flex: 1;
+    padding-bottom: 0px;
+}
+
+/* Footer */
+footer { width: 100%;  border-top: 1px solid #f8f9fa; } 
+footer > .container {
+    padding-top: 20px; padding-bottom: 20px; text-align: center;
+} 
+
+/* IE10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    main[role='main']{ flex: 1 1 auto; padding-bottom: 30px; } 
+} 

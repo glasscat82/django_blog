@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def hi(request):
-    return render(request, 'index.html', context={'alert':'alert_style'})
+def index_main(request):
+    return render(request, 'index.html', context={'page':''})

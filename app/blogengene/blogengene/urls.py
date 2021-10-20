@@ -19,12 +19,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
-from .views import hi
+from .views import index_main
+from django.contrib.auth import views as authViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('', hi),
+    path('', index_main, name='index_main_url'),
+    path('logout/', authViews.LogoutView.as_view(next_page='/'), name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
