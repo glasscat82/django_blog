@@ -129,3 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+
+from django.conf.locale.en import formats as enformats
+enformats.DATETIME_FORMAT = "d/m/Y H:i"
