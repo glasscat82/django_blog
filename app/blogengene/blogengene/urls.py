@@ -20,13 +20,15 @@ from django.urls import path
 from django.urls import include
 
 from .views import index_main
+from .forms import UserLoginForm
 from django.contrib.auth import views as authViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('', index_main, name='index_main_url'),
-    path('logout/', authViews.LogoutView.as_view(next_page='/'), name='logout'),
+    path('logout/', authViews.LogoutView.as_view(next_page='/'), name='logout'), 
+    path('accounts/login/', authViews.LoginView.as_view(template_name="registration/login.html", authentication_form=UserLoginForm), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
